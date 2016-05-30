@@ -8,7 +8,7 @@ int main()
 	int number;
 	int c = 0;
 	int count = 0;
-	printf( "Guess a number from one to ten!\n" );
+	printf( "Guess a number from 1 to 10! You have 5 tries.\n" );
 	do {
 		scanf( "%d", &number);
 		if (number == r) {

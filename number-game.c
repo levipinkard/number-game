@@ -9,20 +9,20 @@ int main() {
 	int count = 0;
 	printf( "Guess a number from 1 to 10! You have 5 tries.\n" );
 	do {
-		scanf( "%d", &number );
+		scanf( "%d", &number ); /* gets user guess */
 		if ( number == r ) {
 			printf ( "Correct! You win!!!\n" );
 			c = 1; /* ends loop if correct */
 		}
 		else if ( number > r ) {
 			printf ( "Too high! %d guesses remaining.\n", 4 - count );
-			count++;
+			count++; /* adds 1 to guess counter*/
 		}
 		else {
 			printf ( "Too low! %d guesses remaining.\n", 4 - count );
-			count++;
+			count++; /* adds 1 to guess counter*/
 		}	
 	}
-	while ( c == 0 && count < 5 );
+	while ( c == 0 && count < 5 ); /* ends loop if correct answer guessed or guess count reaches 5 */
 	return 0;
 }

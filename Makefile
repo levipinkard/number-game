@@ -1,5 +1,5 @@
 CC=gcc
-test:
-	cc -o test test.c
+number-game:
+	cc -o number-game numbergame.c
 
 

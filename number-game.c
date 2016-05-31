@@ -6,23 +6,41 @@ int main() {
 	int r = ( rand() % 10 ) + 1; /* generates "random" number */
 	int number;
 	int c = 0;
-	int count = 0;
+	int count = 5;
 	printf( "Guess a number from 1 to 10! You have 5 tries.\n" );
 	do {
-		scanf( "%d", &number ); /* gets user guess */
-		if ( number == r ) {
-			printf ( "Correct! You win!!!\n" );
-			c = 1; /* ends loop if correct */
-		}
-		else if ( number > r ) {
-			printf ( "Too high! %d guesses remaining.\n", 4 - count );
-			count++; /* adds 1 to guess counter*/
-		}
-		else {
-			printf ( "Too low! %d guesses remaining.\n", 4 - count );
-			count++; /* adds 1 to guess counter*/
+		if ( count == 0 ) {
+			printf ( "\nGame over! Press enter to exit...\n" );
+			c = 1;
 		}	
+		else {	
+			scanf( "%d", &number ); /* gets user guess */
+			if ( number == r ) {
+				printf ( "\nCorrect! You win!!! Press enter to exit...\n" );
+				c = 1; /* ends loop */
+			}
+			else if ( number > r ) {
+				if ( count != 2 )	{
+					printf ( "Too high! %d guesses remaining.\n", count - 1);
+				}
+				else {
+					printf ( "Too high! 1 guess remaining.\n" );
+				}
+				count--; /* subtracts 1 from guess counter*/
+			}
+			else {
+				if (count != 2) {
+					printf ( "Too low! %d guesses remaining.\n", count - 1);
+				}
+				else {
+					printf ( "Too low! 1 guess remaining.\n" );
+				}
+				count--; /* subtracts 1 from guess counter*/
+			}	
+		}
 	}
-	while ( c == 0 && count < 5 ); /* ends loop if correct answer guessed or guess count reaches 5 */
+	while ( c == 0 ); /* ends loop if correct answer guessed or guess count reaches 5 */
+	getchar();
+	getchar();
 	return 0;
 }
